@@ -1,7 +1,7 @@
 # edit_ca_covid.sh
 # 2021/03/20 created
 # 2021/05/17 chg csv files to unifom names: statewide_cases.csv to corona_info_ca.csv
-# covid19cases_test.csv to
+#            covid19cases_test.csv to corona_info_ca_dl.csv
 
 cadownload=$HOME/Downloads/corona_info_ca_dl.csv
 tmpsrt=edit_ca_covid.srt
