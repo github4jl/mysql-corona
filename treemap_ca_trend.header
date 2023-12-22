@@ -1,0 +1,16 @@
+﻿<!-- treemap_ca_trend.header - creates treemap code -->
+<html>  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['treemap']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Location', 'Parent', 'Net conf (size)', 'Net death (color)'],
+          ['World',    null,                 0,                               0],
+          ['USA',    'World',                 null,                        null],
+          ['CA',    'USA',               null  ,                           null]
+
+<!-- treemap_ca_trend.header end -->
+
+

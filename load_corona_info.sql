@@ -5,6 +5,7 @@
 -- 2020/10/08 new input file format
 -- 2021/03/05 add info on what's loading
 -- 2021/05/17 chg owid-covid-data.csv to corona_info.csv
+-- 2021/09/27 remove sole continents
 
 select 'loading corona_info';
 source use_pandemic_db.sql;
@@ -56,6 +57,12 @@ life_expectancy,
 human_development_index
 )
 ;
+select 'remove sole continents';
+select continent,location,count(*) from corona_info where continent = "" and location <> "World"
+  group by continent,location;
+delete from corona_info where continent = "" and location <> "World";
+
+select 'set load date';
 update corona_info
 set corona_info_loaded = now();
 select count(*) from corona_info;

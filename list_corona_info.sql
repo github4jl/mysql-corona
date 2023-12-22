@@ -1,13 +1,14 @@
--- SCCSID @(#)  1.15 07/07/20 14:57:37
+-- SCCSID @(#)  1.16 03/16/21 18:20:01
 -- list_corona_info.sql
 -- 2020/05/10 created
 -- 2020/05/11-13 added multiple country, us, world reports
 -- 2020/05/13 added trends
 -- 2020/06/21 exclude from date report unless nonzero
 -- 2020/07/07 rmv us_world by_date enhance summaries
+-- 2021/03/17 fix output path
 source use_pandemic_db.sql;
-system rm  /home/jdlamb/bin/mysql/list_corona_info.txt;
-tee /home/jdlamb/bin/mysql/list_corona_info.txt;
+system rm  list_corona_info.txt;
+tee list_corona_info.txt;
 SELECT CURDATE(),current_time();
 select 'list corona info';
 select corona_info_loaded, count(*)

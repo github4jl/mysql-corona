@@ -1,0 +1,36 @@
+<!-- treemap_us_trend.trailer - creates treemap 'draw' code -->
+<!-- 2021/03/11 created -->
+
+        ]);
+
+        tree = new google.visualization.TreeMap(document.getElementById('chart_div'));
+
+        tree.draw(data, {
+          minColor: 'green',
+          midColor: 'yellow',
+          maxColor: 'red',
+          headerHeight: 15,
+          fontColor: 'black',
+          showScale: true,
+          generateTooltip: showFullTooltip
+        });
+
+        <!-- this function enables right click info, invoked by generateTooltip: showFullTooltip -->
+        function showFullTooltip(row, size, value) {
+        return '<div style="background:#fd9; padding:10px; border-style:solid">' +
+           '<span style="font-family:Courier"><b>' + data.getValue(row, 0) +
+           '</b>, ' + data.getValue(row, 1) + ', ' + data.getValue(row, 2) +
+           ', ' + data.getValue(row, 3) + '</span><br>' +
+           'Datatable row: ' + row + '<br>' + data.getColumnLabel(2) +
+           ' (total value of this cell and its children): ' + size + '<br>' +
+	   data.getColumnLabel(3) + ': ' + value + ' </div>';
+        }
+
+
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>

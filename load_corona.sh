@@ -6,6 +6,7 @@
 # 2020/10/04 add list_corona_info_sd_trend.sql
 # 2020/10/08 add load_corona_qc.sql
 # 2020/10/13 add list_state_gov.sql
+# 2021/03/21 add treemaps
 
 tmpsql=load_corona.sh.sql
 echo source load_corona_info.sql >  $tmpsql
@@ -23,3 +24,11 @@ echo exit >> $tmpsql
 
 mysql --table -p < $tmpsql
 rm $tmpsql
+
+echo "*** creating graphics "
+
+for tmap in treemap_ca_trend.sh treemap_us_trend.sh
+do
+  echo "$tmap"
+  sh ~/bin/mysql/$tmap
+done 
